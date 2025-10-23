@@ -58,6 +58,20 @@
       grid-template-columns: 1fr 1fr;
       gap: 30px;
       backdrop-filter: blur(4px);
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeUp 1.3s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .contact-info {
@@ -197,4 +211,3 @@
 
 </body>
 </html>
-
