@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jenis Sepeda | GoRide+</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1920&q=80') 
+                  no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(0, 91, 153, 0.95);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      backdrop-filter: blur(3px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    nav {
+      background-color: rgba(0, 51, 102, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #cce7ff;
+      text-decoration: underline;
+    }
+
+    .content {
+      max-width: 1100px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      backdrop-filter: blur(4px);
+    }
+
+    .content h2 {
+      text-align: center;
+      color: #004d80;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    .bike-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .bike-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .bike-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .bike-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .bike-info {
+      padding: 15px;
+      text-align: center;
+    }
+
+    .bike-info h3 {
+      color: #007acc;
+      margin-bottom: 10px;
+    }
+
+    .bike-info p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .price {
+      margin-top: 10px;
+      font-weight: bold;
+      color: #004d80;
+    }
+
+    footer {
+      background-color: rgba(0, 51, 102, 0.95);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #cce7ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GoRide+ | Jenis Sepeda</h1>
+    <p>Pilih sepeda listrik sesuai kebutuhan dan gaya berkendara Anda</p>
+  </header>
+
+  <nav>
+    <a href="tugas pwd final.html">Beranda</a>
+    <a href="about.html">Tentang Kami</a>
+    <a href="jenis_sepeda.html">Jenis Sepeda</a>
+    <a href="form_penyewaan_sepeda.html">Daftar Sewa</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <section class="content">
+    <h2>Jenis Sepeda Listrik yang Tersedia</h2>
+
+    <div class="bike-grid">
+      <div class="bike-card">
+        <img src="city.png" alt="City E-Bike">
+        <div class="bike-info">
+          <h3>City E-Bike</h3>
+          <p>Dirancang untuk perjalanan perkotaan yang nyaman. Cocok untuk perjalanan jarak pendek dan sedang.</p>
+          <p class="price">Rp 25.000 / jam</p>
+        </div>
+      </div>
+
+      <div class="bike-card">
+        <img src="mount.png" alt="Mountain E-Bike">
+        <div class="bike-info">
+          <h3>Mountain E-Bike</h3>
+          <p>Dilengkapi suspensi dan tenaga ekstra untuk medan berbukit atau jalanan tidak rata.</p>
+          <p class="price">Rp 30.000 / jam</p>
+        </div>
+      </div>
+
+      <div class="bike-card">
+        <img src="folding.png" alt="Folding E-Bike">
+        <div class="bike-info">
+          <h3>Folding E-Bike</h3>
+          <p>Ringkas dan mudah dilipat. Ideal untuk pengguna yang membutuhkan sepeda praktis di area perkotaan.</p>
+          <p class="price">Rp 20.000 / jam</p>
+        </div>
+      </div>
+
+      <div class="bike-card">
+        <img src="cargo.png" alt="Cargo E-Bike">
+        <div class="bike-info">
+          <h3>Cargo E-Bike</h3>
+          <p>Memiliki ruang tambahan di depan untuk membawa barang, cocok untuk usaha kecil atau antar pesanan.</p>
+          <p class="price">Rp 35.000 / jam</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 GoRide+. Semua Hak Dilindungi | Hubungi kami di 
+    <a href="mailto:info@gorideplus.com">info@gorideplus.com</a>
+  </footer>
+
+</body>
+</html>

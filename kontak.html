@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak Kami | GoRide+</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1920&q=80')
+                  no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(0, 91, 153, 0.95);
+      color: white;
+      text-align: center;
+      padding: 25px;
+      backdrop-filter: blur(3px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    nav {
+      background-color: rgba(0, 51, 102, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #cce7ff;
+      text-decoration: underline;
+    }
+
+    .contact-container {
+      max-width: 1000px;
+      margin: 50px auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      padding: 40px 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-info {
+      line-height: 1.8;
+    }
+
+    .contact-info h2 {
+      color: #004d80;
+      margin-bottom: 10px;
+    }
+
+    .contact-info p {
+      margin-bottom: 10px;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 10px;
+      text-decoration: none;
+      color: #007acc;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    form h2 {
+      color: #004d80;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    input, textarea {
+      margin-bottom: 12px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      background-color: #007acc;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #005b99;
+    }
+
+    footer {
+      background-color: rgba(0, 51, 102, 0.95);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: #cce7ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>GoRide+ | Kontak Kami</h1>
+    <p>Hubungi kami untuk pertanyaan, saran, atau kerja sama</p>
+  </header>
+
+  <nav>
+    <a href="tugas pwd final.html">Beranda</a>
+    <a href="about.html">Tentang Kami</a>
+    <a href="jenis_sepeda.html">Jenis Sepeda</a>
+    <a href="form_penyewaan_sepeda.html">Daftar Sewa</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+
+  <section class="contact-container">
+    <div class="contact-info">
+      <h2>Informasi Kontak</h2>
+      <p><strong>Alamat:</strong> Jl. Kemang Raya No. 25, Jakarta Selatan</p>
+      <p><strong>Email:</strong> <a href="mailto:info@gorideplus.com">info@gorideplus.com</a></p>
+      <p><strong>Telepon:</strong> +62 812 123 12661</p>
+      <p><strong>Jam Operasional:</strong> Setiap hari pukul 08.00 - 20.00 WIB</p>
+
+      <div class="social-links">
+        <p><strong>Ikuti Kami:</strong></p>
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+
+    <form>
+      <h2>Kirim Pesan</h2>
+      <input type="text" name="nama" placeholder="Nama Anda" required>
+      <input type="email" name="email" placeholder="Alamat Email" required>
+      <input type="text" name="subjek" placeholder="Subjek Pesan">
+      <textarea name="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
+      <button type="submit">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 GoRide+. Semua Hak Dilindungi | Hubungi kami di 
+    <a href="mailto:info@gorideplus.com">info@gorideplus.com</a>
+  </footer>
+
+</body>
+</html>

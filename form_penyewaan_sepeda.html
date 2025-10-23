@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Pendaftaran Penyewaan Sepeda Listrik</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e8f5ff;
+      padding: 20px;
+    }
+
+    .title {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      margin: auto;
+    }
+
+    fieldset {
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 15px;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #004d80;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    input[type="file"] {
+      margin-top: 5px;
+    }
+
+    .button-group {
+      text-align: center;
+    }
+
+    button, .back-btn {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 25px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button:hover, .back-btn:hover {
+      background-color: #005b99;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2 class="title">FORM PENDAFTARAN PENYEWAAN SEPEDA LISTRIK</h2>
+
+  <form class="form-container">
+    
+    <!-- Bagian Data Pribadi -->
+    <fieldset>
+      <legend>Data Pribadi</legend>
+      <label>Nama Lengkap:</label>
+      <input type="text" name="nama" required>
+
+      <label>Jenis Kelamin:</label>
+      <input type="radio" name="gender" value="Laki-laki"> Laki-laki
+      <input type="radio" name="gender" value="Perempuan"> Perempuan
+
+      <label>Tanggal Lahir:</label>
+      <input type="date" name="dob">
+
+      <label>No. Identitas (KTP/SIM):</label>
+      <input type="text" name="no_id">
+
+      <label>Status:</label>
+      <select name="status">
+        <option value="">-- Pilih Status --</option>
+        <option value="pelajar">Pelajar</option>
+        <option value="mahasiswa">Mahasiswa</option>
+        <option value="karyawan">Karyawan</option>
+        <option value="lainnya">Lainnya</option>
+      </select>
+    </fieldset>
+
+    <!-- Bagian Kontak -->
+    <fieldset>
+      <legend>Kontak</legend>
+      <label>No. Telepon:</label>
+      <input type="text" name="telepon" required>
+
+      <label>Email:</label>
+      <input type="email" name="email">
+
+      <label>Alamat:</label>
+      <input type="text" name="alamat1" placeholder="Alamat lengkap">
+      <input type="text" name="alamat2" placeholder="Kecamatan / Kota">
+
+      <label>Kode Pos:</label>
+      <input type="text" name="kodepos">
+    </fieldset>
+
+    <!-- Bagian Detail Penyewaan -->
+    <fieldset>
+      <legend>Detail Penyewaan</legend>
+      <label>Tanggal Sewa:</label>
+      <input type="date" name="tgl_sewa">
+
+      <label>Durasi Sewa (jam):</label>
+      <input type="number" name="durasi" min="1" max="24">
+
+      <label>Jenis Sepeda:</label>
+      <select name="jenis_sepeda">
+        <option value="">-- Pilih Jenis --</option>
+        <option value="city">City E-Bike</option>
+        <option value="mountain">Mountain E-Bike</option>
+        <option value="folding">Folding E-Bike</option>
+      </select>
+
+      <label>Upload Foto Identitas:</label>
+      <input type="file" name="foto_id">
+
+      <label>Upload Tanda Tangan:</label>
+      <input type="file" name="ttd">
+    </fieldset>
+
+    <!-- Tombol -->
+    <div class="button-group">
+      <button type="submit">Kirim</button>
+      <button type="reset">Batal</button>
+      <a href="tugas pwd final.html" class="back-btn">← Kembali ke Beranda</a>
+    </div>
+
+  </form>
+
+</body>
+</html>
