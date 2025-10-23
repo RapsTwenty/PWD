@@ -75,11 +75,33 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    /* Saat elemen terlihat */
+    .bike-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Variasi arah animasi */
+    .slide-left {
+      transform: translateX(-60px);
+    }
+
+    .slide-right {
+      transform: translateX(60px);
+    }
+
+    .bike-card.show.slide-left,
+    .bike-card.show.slide-right {
+      transform: translateX(0);
     }
 
     .bike-card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.03);
       box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
 
@@ -148,7 +170,7 @@
     <h2>Jenis Sepeda Listrik yang Tersedia</h2>
 
     <div class="bike-grid">
-      <div class="bike-card">
+      <div class="bike-card slide-left">
         <img src="city.png" alt="City E-Bike">
         <div class="bike-info">
           <h3>City E-Bike</h3>
@@ -157,7 +179,7 @@
         </div>
       </div>
 
-      <div class="bike-card">
+      <div class="bike-card slide-right">
         <img src="mount.png" alt="Mountain E-Bike">
         <div class="bike-info">
           <h3>Mountain E-Bike</h3>
@@ -166,7 +188,7 @@
         </div>
       </div>
 
-      <div class="bike-card">
+      <div class="bike-card slide-left">
         <img src="folding.png" alt="Folding E-Bike">
         <div class="bike-info">
           <h3>Folding E-Bike</h3>
@@ -175,7 +197,7 @@
         </div>
       </div>
 
-      <div class="bike-card">
+      <div class="bike-card slide-right">
         <img src="cargo.png" alt="Cargo E-Bike">
         <div class="bike-info">
           <h3>Cargo E-Bike</h3>
@@ -191,6 +213,25 @@
     <a href="mailto:info@gorideplus.com">info@gorideplus.com</a>
   </footer>
 
+  <script>
+    // Deteksi elemen saat di-scroll ke tampilan
+    const cards = document.querySelectorAll('.bike-card');
+
+    function showOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('show');
+        } else {
+          card.classList.remove('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', showOnScroll);
+    showOnScroll(); // panggil pertama kali
+  </script>
+
 </body>
 </html>
-
