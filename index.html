@@ -1,362 +1,242 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCPS Private Server</title>
+  <title>Beranda | Rental Sepeda Listrik GoRide+</title>
   <style>
-    @keyframes rgbText {
-      0% { color: red; }
-      33% { color: lime; }
-      66% { color: deepskyblue; }
-      100% { color: red; }
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(10px); }
-    }
-    body {
+    /* ======= RESET DASAR ======= */
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #121212);
-      color: #fff;
-      text-align: center;
-      background-attachment: fixed;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 51, 102, 0.5)),
+        url('https://images.unsplash.com/photo-1605296867304-46d5465a13f1?auto=format&fit=crop&w=1920&q=80')
+        no-repeat center center fixed;
       background-size: cover;
-      overflow-x: hidden;
+      backdrop-filter: blur(2px);
     }
+
+    /* ======= HEADER ======= */
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      z-index: 999;
+      background-color: rgba(0, 122, 204, 0.85);
+      color: white;
+      padding: 25px;
+      text-align: center;
+      backdrop-filter: blur(4px);
     }
-    header img.logo {
-      height: 40px;
+
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
     }
-    .menu-icon {
-      display: flex;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 6px;
+
+    header p {
+      margin-top: 5px;
+      font-size: 16px;
     }
-    .menu-icon div {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-    }
+
+    /* ======= NAVBAR ======= */
     nav {
-      position: fixed;
-      top: 60px;
-      right: 20px;
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      display: none;
-      flex-direction: column;
-      gap: 15px;
-      z-index: 998;
+      background-color: rgba(0, 91, 153, 0.9);
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      padding: 12px 0;
+      backdrop-filter: blur(4px);
     }
+
     nav a {
       color: white;
       text-decoration: none;
-      font-size: 1rem;
-    }
-    nav a:hover {
-      color: #ffcc00;
-    }
-    .divider {
-      width: 100px;
-      height: 3px;
-      background: #00afff;
-      margin: 100px auto 20px;
-      border-radius: 2px;
-    }
-    h1 {
-      font-size: 2.2rem;
-      margin-top: 80px;
-      animation: rgbText 4s infinite;
-    }
-    p {
-      font-size: 1.15rem;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.6;
-      color: #f1f1f1;
-    }
-    .banner {
-      margin: 30px auto 10px;
-      max-width: 100%;
-    }
-    .banner img {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #000;
-    }
-    .status {
-      background: #00ff00;
-      color: #000;
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 8px;
       font-weight: bold;
-      margin: 40px 0;
+      transition: 0.3s;
     }
-    .scroll-hint {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px auto 50px;
-      max-width: 800px;
-      padding: 0 30px;
+
+    nav a:hover {
+      color: #cce7ff;
+      text-decoration: underline;
     }
-    .scroll-hint img {
-      width: 40px;
-      height: 40px;
-      opacity: 0.5;
-      animation: bounce 1.5s infinite;
-    }
-    .link-box, .social-box {
-      margin: 60px auto;
-      padding: 20px;
-      background: rgba(31, 31, 31, 0.9);
-      border-radius: 10px;
-      width: 80%;
-      max-width: 600px;
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: all 1s ease-out;
-    }
-    .link-box.show, .social-box.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .link-box a, .social-box a {
-      color: #00afff;
-      text-decoration: none;
-      display: block;
-      margin: 10px 0;
-    }
-    pre {
-      background: #121212;
-      padding: 15px;
-      color: #0f0;
-      text-align: left;
-      white-space: pre-wrap;
-      border-radius: 8px;
-      font-family: monospace;
-      position: relative;
-    }
-    .copy-btn {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: #00afff;
-      color: #fff;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .how-to-play {
-      background: rgba(0,0,0,0.6);
-      padding: 30px;
-      margin-top: 60px;
-      text-align: left;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      border-radius: 12px;
-      opacity: 0;
-      transform: translateX(50px);
-      transition: all 1s ease-out;
-    }
-    .how-to-play.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .how-to-play h2 {
-      color: #00afff;
+
+    /* ======= HERO SECTION ======= */
+    .hero {
       text-align: center;
+      padding: 90px 20px;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(3px);
+      max-width: 900px;
+      margin: 60px auto 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.25);
     }
-    .how-to-play h3 {
-      color: #00ff88;
+
+    .hero h2 {
+      color: #004d80;
+      font-size: 36px;
+      margin-bottom: 15px;
     }
-    .how-to-play ol {
-      padding-left: 20px;
+
+    .hero p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 25px;
+      line-height: 1.6;
     }
-    .social-box h2 {
-      color: #ffcc00;
+
+    .hero button {
+      background-color: #007acc;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: #005b99;
+      transform: scale(1.05);
+    }
+
+    /* ======= FITUR ======= */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature-card {
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      transition: 0.3s;
+      backdrop-filter: blur(3px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    }
+
+    .feature-card h3 {
+      color: #007acc;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* ======= ABOUT ======= */
+    .about {
+      background-color: rgba(232, 245, 255, 0.95);
+      padding: 50px 25px;
+      text-align: center;
+      margin-top: 40px;
+      backdrop-filter: blur(3px);
+    }
+
+    .about h2 {
+      color: #004d80;
+      font-size: 26px;
       margin-bottom: 10px;
     }
-    .social-box h2::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 2px;
-      background: #ffcc00;
-      margin: 8px auto 0;
+
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+      color: #333;
     }
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin-top: 15px;
-    }
-    .social-icons a img {
-      width: 40px;
-      height: 40px;
-      transition: transform 0.3s ease;
-    }
-    .social-icons a:hover img {
-      transform: scale(1.2);
-    }
+
+    /* ======= FOOTER ======= */
     footer {
-      background: #111;
-      padding: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
-      margin-top: 60px;
+      background-color: rgba(0, 51, 102, 0.9);
+      color: white;
+      text-align: center;
+      padding: 18px;
+      margin-top: 50px;
+      font-size: 14px;
+      backdrop-filter: blur(3px);
+    }
+
+    footer a {
+      color: #cce7ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <header>
-    <img src="scps_banner.png" alt="SCPS Logo" class="logo">
-    <div class="menu-icon" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-    <nav id="mobileMenu">
-      <a href="#top">Home</a>
-      <a href="#host">Host</a>
-      <a href="#how">How To Play</a>
-      <a href="#community">Community</a>
-    </nav>
+    <h1>GoRide+ | Penyewaan Sepeda Listrik</h1>
+    <p>Solusi ramah lingkungan untuk mobilitas harian Anda 🚴‍♂️⚡</p>
   </header>
 
-  <h1 id="top">SCPS Private Server</h1>
-  <div class="divider"></div>
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="about.html">Tentang Kami</a>
+    <a href="jenis_sepeda.html">Jenis Sepeda</a>
+    <a href="form_penyewaan_sepeda.html">Daftar Sewa</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
 
-  <p>Haloo Semuaanyaa! Selamat Datang Di <strong>SCPS Private Server!</strong><br>
-  Di Sini kalian bisa bermain <strong>Growtopia Versi Private</strong> dengan fitur-fitur menarik dan banyak <strong>Custom Item</strong>!<br>
-  Bergabunglah sekarang dan rasakan pengalaman mu di SCPS Private Server!</p>
+  <section class="hero">
+    <h2>Rasakan Sensasi Berkendara Sepeda Listrik Tanpa Batas!</h2>
+    <p>Sewa sepeda listrik dengan mudah, cepat, dan ramah lingkungan. GoRide+ siap menemani perjalanan Anda kapan pun dan di mana pun tanpa harus khawatir tentang bahan bakar atau polusi.</p>
+    <button onclick="window.location.href='form_penyewaan_sepeda.html'">Mulai Sewa Sekarang</button>
+  </section>
 
-  <div class="banner">
-    <img src="scps_banner.png" alt="SCPS Banner">
-  </div>
-
-  <div class="status">Server Status: ONLINE</div>
-
-  <div class="scroll-hint">
-    <img src="scroll_4103173.png" alt="Scroll Icon">
-    <img src="scroll_4103173.png" alt="Scroll Icon">
-  </div>
-
-  <div class="link-box" id="host">
-    <a href="https://www.mediafire.com/file/9visobna53k26c3/SCPS+HOST.txt/file" target="_blank">Download VHost File</a>
-    <a href="https://growsoft.cc/android.txt" target="_blank">Copy Ptunnel (Android)</a>
-    <a href="https://growsoft.cc/ios.txt" target="_blank">IOS Copy File</a>
-    <h3>Copy ke Windows Host File:</h3>
-    <pre id="windows-ip">
-91.134.85.13 growtopia1.com
-91.134.85.13 growtopia2.com
-91.134.85.13 www.growtopia1.com
-91.134.85.13 www.growtopia2.com
-<button class="copy-btn" onclick="copyText()">Copy</button>
-    </pre>
-  </div>
-
-  <div class="how-to-play" id="how">
-    <h2>How To Play</h2>
-    <h3>Android</h3>
-    <ol>
-      <li>Download SCPS HOST.</li>
-      <li>Buka aplikasi Virtual Host.</li>
-      <li>Klik "RE-SELECT HOSTS FILE".</li>
-      <li>Cari file SCPS HOST.txt yang sudah kamu download dan klik.</li>
-      <li>Pastikan lingkaran menyala hijau.</li>
-      <li>Sekarang kamu bisa login ke Growtopia!</li>
-    </ol>
-    <p><strong>Name Server:</strong> SCPS</p>
-
-    <h3>Windows</h3>
-    <ol>
-      <li>Tekan ⊞ Win+R untuk membuka jendela "Run".</li>
-      <li>Ketik <code>C:\Windows\System32\drivers\etc</code>.</li>
-      <li>Temukan file bernama <code>hosts</code>.</li>
-      <li>Edit file "hosts" menggunakan Notepad.</li>
-      <li>Tambahkan IP di atas.</li>
-      <li>Simpan dan buka Growtopia.</li>
-    </ol>
-    <p><strong>Name Server:</strong> SCPS</p>
-
-    <h3>IOS</h3>
-    <ol>
-      <li>Unduh aplikasi "Surge 5" dari App Store.</li>
-      <li>Tekan "OK".</li>
-      <li>Klik "Default.conf".</li>
-      <li>Klik "IMPORT" > Download Profile from URL.</li>
-      <li>Masukkan URL dari tombol IOS host di atas lalu klik "OK" dan "Done".</li>
-      <li>Tekan "SETUP", lalu izinkan VPN configuration.</li>
-      <li>Buka Growtopia dan Connect!</li>
-    </ol>
-    <p><strong>Name Server:</strong> SCPS</p>
-  </div>
-
-  <div class="social-box" id="community">
-    <h2>SERVER COMUNITY</h2>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/jaboy_gt?igsh=MTZnd3Z5NzNhZjFpdw%3D%3D&utm_source=qr" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-      <a href="https://chat.whatsapp.com/IMobcruMhZgAWUI1tjZIJT" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
-      </a>
-      <a href="https://discord.gg/FChejVkZ" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
-      </a>
+  <section class="features">
+    <div class="feature-card">
+      <h3>⚡ Ramah Lingkungan</h3>
+      <p>Sepeda listrik kami tidak menghasilkan emisi gas buang, menjaga udara tetap bersih dan segar.</p>
     </div>
-  </div>
+    <div class="feature-card">
+      <h3>🕒 Sewa Fleksibel</h3>
+      <p>Pilih durasi sewa sesuai kebutuhan, mulai dari 1 jam hingga 24 jam penuh.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📱 Pemesanan Online</h3>
+      <p>Isi formulir sewa langsung dari website kami dan sepeda siap digunakan.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔋 Performa Andal</h3>
+      <p>Ditenagai baterai berkualitas tinggi untuk perjalanan jauh tanpa khawatir kehabisan daya.</p>
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>Tentang GoRide+</h2>
+    <p>
+      GoRide+ adalah layanan penyewaan sepeda listrik yang menyediakan pengalaman berkendara yang efisien, aman, dan ramah lingkungan. 
+      Kami berkomitmen untuk menghadirkan solusi transportasi modern yang membantu mengurangi polusi dan mendukung gaya hidup sehat.
+    </p>
+  </section>
 
   <footer>
-    © 2025 SCPS Private Server. All rights reserved.
+    &copy; 2025 GoRide+. Semua Hak Dilindungi | Hubungi kami di <a href="mailto:info@gorideplus.com">info@gorideplus.com</a>
   </footer>
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById('mobileMenu');
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    function copyText() {
-      const text = `91.134.85.13 growtopia1.com\n91.134.85.13 growtopia2.com\n91.134.85.13 www.growtopia1.com\n91.134.85.13 www.growtopia2.com`;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied to clipboard!");
-      });
-    }
-
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.link-box, .how-to-play, .social-box').forEach(el => {
-      observer.observe(el);
-    });
-  </script>
 </body>
 </html>
